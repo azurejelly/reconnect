@@ -1,0 +1,4 @@
+{
+  "reconnect.button": "Reconnect",
+  "reconnect.tooltip.fail": "An internal error occurred. Please take a look at your client logs for more information."
+}

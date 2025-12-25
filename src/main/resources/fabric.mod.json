@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "reconnect",
+  "version": "${version}",
+  "name": "Reconnect",
+  "description": "Adds a Reconnect button to the Disconnected screen.",
+  "authors": [
+    "azurejelly"
+  ],
+  "contact": {
+    "homepage": "https://github.com/azurejelly/reconnect",
+    "sources": "https://github.com/azurejelly/reconnect"
+  },
+  "license": "MIT",
+  "icon": "assets/reconnect/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "dev.azuuure.reconnect.ReconnectMod"
+    ]
+  },
+  "mixins": [
+    "reconnect.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": ">=${minecraft_version}"
+  }
+}
