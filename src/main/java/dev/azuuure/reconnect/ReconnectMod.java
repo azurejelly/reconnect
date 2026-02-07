@@ -1,6 +1,6 @@
 package dev.azuuure.reconnect;
 
-import dev.azuuure.reconnect.store.LastServerStore;
+import dev.azuuure.reconnect.store.ServerDataStore;
 import net.fabricmc.api.ClientModInitializer;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
@@ -10,7 +10,7 @@ public class ReconnectMod implements ClientModInitializer {
 
     private static ReconnectMod instance;
     private Logger logger;
-    private LastServerStore store;
+    private ServerDataStore store;
 
     /**
      * Called when the client is initialized. Sets up the
@@ -20,12 +20,12 @@ public class ReconnectMod implements ClientModInitializer {
     public void onInitializeClient() {
         instance = this;
         logger = LoggerFactory.getLogger(ReconnectMod.class);
-        store = new LastServerStore();
+        store = new ServerDataStore();
     }
 
     /**
-     * Returns the {@link Logger SLF4J logger} used by the Reconnect mod.
-     * @return A {@link Logger SLF4J logger}.
+     * Returns the {@link Logger SLF4J logger} used by the mod.
+     * @return a {@link Logger SLF4J logger}.
      */
     @NotNull
     public Logger getLogger() {
@@ -35,20 +35,20 @@ public class ReconnectMod implements ClientModInitializer {
     /**
      * Returns an instance of the main {@link ReconnectMod} class.
      *
-     * @return A {@link ReconnectMod} instance.
+     * @return a {@link ReconnectMod} instance.
      */
     public static ReconnectMod getInstance() {
         return instance;
     }
 
     /**
-     * Returns an instance of {@link LastServerStore}, which stores
+     * Returns an instance of {@link ServerDataStore}, which stores
      * the last server the client has connected to.
      *
-     * @return An instance of {@link LastServerStore}
+     * @return an instance of {@link ServerDataStore}
      */
     @NotNull
-    public LastServerStore getStore() {
+    public ServerDataStore getStore() {
         return store;
     }
 }

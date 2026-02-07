@@ -1,14 +1,14 @@
 package dev.azuuure.reconnect.mixin;
 
 import dev.azuuure.reconnect.ReconnectMod;
-import dev.azuuure.reconnect.store.LastServerStore;
+import dev.azuuure.reconnect.store.ServerDataStore;
 import dev.azuuure.reconnect.utils.Constants;
-import net.minecraft.client.gui.screen.DisconnectedScreen;
-import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.gui.tooltip.Tooltip;
-import net.minecraft.client.gui.widget.ButtonWidget;
-import net.minecraft.client.gui.widget.DirectionalLayoutWidget;
-import net.minecraft.text.Text;
+import net.minecraft.client.gui.components.Button;
+import net.minecraft.client.gui.components.Tooltip;
+import net.minecraft.client.gui.layouts.LinearLayout;
+import net.minecraft.client.gui.screens.DisconnectedScreen;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.network.chat.Component;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -20,7 +20,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class DisconnectedScreenMixin extends ScreenMixin {
 
     @Shadow @Final
-    private DirectionalLayoutWidget grid;
+    private LinearLayout layout;
 
     @Shadow @Final
     private Screen parent;
@@ -34,23 +34,23 @@ public abstract class DisconnectedScreenMixin extends ScreenMixin {
             method = "init",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/client/gui/widget/DirectionalLayoutWidget;refreshPositions()V"
+                    target = "Lnet/minecraft/client/gui/layouts/LinearLayout;arrangeElements()V"
             )
     )
-    public void addReconnectButton(CallbackInfo ci) {
+    public void reconnect$addReconnectButton(CallbackInfo ci) {
         ReconnectMod mod = ReconnectMod.getInstance();
-        LastServerStore store = mod.getStore();
+        ServerDataStore store = mod.getStore();
 
-        if (grid == null) {
+        if (layout == null) {
             mod.getLogger().error("Cannot manipulate screen grid. Reconnect button will not be visible.");
             mod.getLogger().error(Constants.PLEASE_REPORT);
             return;
         }
 
-        ButtonWidget widget = ButtonWidget
+        Button widget = Button
                 .builder(
-                        Text.translatable("reconnect.button"),
-                        (btn) -> store.reconnect(parent, client)
+                        Component.translatable("reconnect.button"),
+                        (_) -> store.reconnect(parent, minecraft)
                 ).width(200)
                 .build();
 
@@ -60,12 +60,12 @@ public abstract class DisconnectedScreenMixin extends ScreenMixin {
 
             widget.active = false;
             widget.setTooltip(
-                    Tooltip.of(
-                            Text.translatable("reconnect.tooltip.fail")
+                    Tooltip.create(
+                            Component.translatable("reconnect.tooltip.fail")
                     )
             );
         }
 
-        grid.add(widget);
+        layout.addChild(widget);
     }
 }
