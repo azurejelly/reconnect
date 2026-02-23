@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${mod_version}",
+  "name": "${mod_name}",
+  "description": "${mod_description}",
+  "authors": [
+    {
+      "name": "azurejelly",
+      "contact": {
+        "email": "hello@azuuure.dev",
+        "homepage": "https://azuuure.dev"
+      }
+    }
+  ],
+  "contact": {
+    "homepage": "https://modrinth.com/mod/reconnect-mod",
+    "sources": "https://github.com/azurejelly/reconnect",
+    "issues": "https://github.com/azurejelly/reconnect/issues"
+  },
+  "license": "${mod_license}",
+  "icon": "icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "dev.azuuure.reconnect.fabric.FabricReconnectMod"
+    ]
+  },
+  "mixins": [
+    "${mod_id}.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*",
+    "minecraft": "~26.1-",
+    "java": ">=25"
+  }
+}
