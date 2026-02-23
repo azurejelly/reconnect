@@ -18,19 +18,15 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(DisconnectedScreen.class)
-public abstract class DisconnectedScreenMixin extends ScreenMixin {
+public abstract class DisconnectedScreenMixin extends Screen {
 
-    @Shadow @Final
-    private LinearLayout layout;
+    @Shadow @Final private LinearLayout layout;
+    @Shadow @Final private Screen parent;
 
-    @Shadow @Final
-    private Screen parent;
+    protected DisconnectedScreenMixin(Component title) {
+        super(title);
+    }
 
-    /**
-     * Injects the Reconnect button into the Disconnected screen.
-     *
-     * @param ci Mixin callback information
-     */
     @Inject(
             method = "init",
             at = @At(
@@ -50,7 +46,7 @@ public abstract class DisconnectedScreenMixin extends ScreenMixin {
 
         Button widget = Button
                 .builder(
-                        Component.translatable("reconnect.button"),
+                        Component.translatable("reconnect.button.manual"),
                         (_) -> store.reconnect(parent, minecraft)
                 ).width(200)
                 .build();

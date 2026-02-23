@@ -15,25 +15,13 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(ConnectScreen.class)
-public class ConnectScreenMixin extends ScreenMixin {
+public abstract class ConnectScreenMixin {
 
-    /**
-     * Updates the {@link ServerDataStore} with new {@link ServerData server data}
-     * when the client connects to a server.
-     *
-     * @param screen the parent {@link Screen}.
-     * @param minecraft a {@link Minecraft} instance.
-     * @param serverAddress the {@link ServerAddress server address} the client is connecting to.
-     * @param serverData the {@link ServerData server data}.
-     * @param quickPlay quick play. I have no fucking idea what that is.
-     * @param transferState a transfer state, used for Realms from what I understand.
-     * @param ci mixin callback information
-     */
     @Inject(
             method = "startConnecting",
             at = @At("HEAD")
     )
-    private static void reconnect$storeLastServer(
+    private static void storeLastServer(
             Screen screen,
             Minecraft minecraft,
             ServerAddress serverAddress,

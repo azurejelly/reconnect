@@ -1,4 +1,5 @@
 {
-  "reconnect.button": "Reconnect",
+  "reconnect.button.manual": "Reconnect",
+  "reconnect.button.auto": "Reconnecting in %ds",
   "reconnect.tooltip.fail": "An internal error occurred. Please take a look at your client logs for more information."
 }

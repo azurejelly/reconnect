@@ -5,8 +5,7 @@
   "compatibilityLevel": "JAVA_25",
   "client": [
     "ConnectScreenMixin",
-    "DisconnectedScreenMixin",
-    "ScreenMixin"
+    "DisconnectedScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1
