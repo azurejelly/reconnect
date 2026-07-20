@@ -4,7 +4,8 @@ plugins {
 }
 
 neoForge {
-    neoFormVersion = "${libs.versions.minecraft.get()}-1"
+    val timestamp = 2
+    neoFormVersion = "${libs.versions.minecraft.get()}-${timestamp}"
 }
 
 dependencies {
