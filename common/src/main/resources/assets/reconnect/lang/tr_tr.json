@@ -1,0 +1,5 @@
+{
+  "reconnect.button.manual": "Yeniden Bağlan",
+  "reconnect.button.auto": "%ds içinde yeniden bağlanılıyor",
+  "reconnect.tooltip.fail": "Bir dahili hata oluştu. Daha fazla bilgi için lütfen istemci günlüklerinize bakın."
+}
