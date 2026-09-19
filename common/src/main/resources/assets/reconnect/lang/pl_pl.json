@@ -1,0 +1,5 @@
+{
+  "reconnect.button.manual": "Połącz ponownie",
+  "reconnect.button.auto": "Reconnect za %d sekund",
+  "reconnect.tooltip.fail": "Wystąpił błąd. Prosimy zobaczyć logi na twoim komputerze by uzyskać więcej informacji."
+}
