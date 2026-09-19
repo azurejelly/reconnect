@@ -1,5 +1,5 @@
 {
   "reconnect.button.manual": "Reconectar",
-  "reconnect.button.auto": "Reconectando en %d s",
+  "reconnect.button.auto": "Reconectando en %ds",
   "reconnect.tooltip.fail": "Algo salió muy mal. Por favor, revisa los logs del cliente para más información."
 }
