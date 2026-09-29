@@ -1,15 +1,18 @@
 [versions]
-minecraft = "26.2"
+# Minecraft version to build against. For the timestamp, you should
+# check https://projects.neoforged.net/neoforged/neoform.
+minecraft = "26.3"
+timestamp = "1"
 
 # Fabric
-fabric-api = "0.155.2+26.2"
-fabric-loom = "1.17-SNAPSHOT"
-fabric-loader = "0.18.5"
+fabric-api = "0.161.0+26.3"
+fabric-loom = "1.18-SNAPSHOT"
+fabric-loader = "0.19.3"
 
 # NeoForge
-neoforge-main = "26.2.0.25-beta"
+neoforge-main = "26.3.0.34-beta"
 neoforge-loader = "4"
-neoforge-moddev = "2.0.142"
+neoforge-moddev = "2.0.148"
 
 # Other dependencies
 asm = "9.9.1"
