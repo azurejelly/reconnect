@@ -1,17 +1,18 @@
 [versions]
 # Minecraft version to build against. For the timestamp, you should
 # check https://projects.neoforged.net/neoforged/neoform.
-minecraft = "26.3"
-timestamp = "1"
+minecraft = "1.21.11"
+timestamp = "20251209.172050"
 
 # Fabric
-fabric-api = "0.161.0+26.3"
-fabric-loom = "1.18-SNAPSHOT"
-fabric-loader = "0.19.3"
+fabric-api = "0.141.6+1.21.11"
+fabric-loom = "1.15-SNAPSHOT"
+fabric-loader = "0.18.2"
 
 # NeoForge
-neoforge-main = "26.3.0.34-beta"
+neoforge-main = "21.11.45"
 neoforge-loader = "4"
+neoforge-parchment = "2025.12.20"
 neoforge-moddev = "2.0.148"
 
 # Other dependencies
@@ -23,7 +24,7 @@ lombok = "1.18.46"
 junit = "5.10.0"
 
 [plugins]
-loom = { id = "net.fabricmc.fabric-loom", version.ref = "fabric-loom" }
+loom = { id = "net.fabricmc.fabric-loom-remap", version.ref = "fabric-loom" }
 neoforge-moddev = { id = "net.neoforged.moddev", version.ref = "neoforge-moddev" }
 
 [libraries]

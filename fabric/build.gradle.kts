@@ -21,8 +21,9 @@ dependencies {
     implementation(project(":common"))
 
     minecraft(libs.minecraft)
-    implementation(libs.fabric.loader)
-    implementation(libs.fabric.api)
+    mappings(loom.officialMojangMappings())
+    modImplementation(libs.fabric.loader)
+    modImplementation(libs.fabric.api)
 
     compileOnly(libs.lombok)
     annotationProcessor(libs.lombok)

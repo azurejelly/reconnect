@@ -2,7 +2,7 @@ plugins {
     id("java")
 }
 
-val targetJavaVersion = 25
+val targetJavaVersion = 21
 
 tasks {
     withType<JavaCompile>().configureEach {

@@ -47,7 +47,7 @@ public abstract class DisconnectedScreenMixin extends Screen {
         Button widget = Button
                 .builder(
                         Component.translatable("reconnect.button.manual"),
-                        (_) -> store.reconnect(parent, minecraft)
+                        (btn) -> store.reconnect(parent, minecraft)
                 ).width(200)
                 .build();
 
