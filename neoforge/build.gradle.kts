@@ -61,8 +61,8 @@ val generateModMetadata by tasks.registering(ProcessResources::class) {
         "mod_description"         to rootProject.property("mod_description"),
         "mod_license"             to rootProject.property("mod_license"),
         "mod_version"             to project.version.toString(),
-        "minecraft_version"       to libs.versions.minecraft.get(),
-        "minecraft_version_range" to "[${libs.versions.minecraft.get()},)",
+        "minecraft_version"       to "26.1",
+        "minecraft_version_range" to "[26.1,)",
         "loader_version_range"    to "[${libs.versions.neoforge.loader.get()},)",
         "neoforge_version_range"  to "[${libs.versions.neoforge.main.get()},)"
     )
